@@ -1,6 +1,6 @@
 # Fc-engineered antibodies leverage neutrophils to drive control of Mycobacterium tuberculosis
 
-This repository contains custom scripts for analysis described in Irvine...Fortune. Nature Microbiology 2024. 
+This repository contains custom scripts for analysis described in Irvine...Fortune. XXXXX 2024. 
 
 BioRxiv: 
 
