@@ -9,7 +9,7 @@ library(glue)
 library(devtools)
 library(MAST)
 library(dplyr)
-install_github('immunogenomics/presto')
+#install_github('immunogenomics/presto')
 
 # load  counts
 bctbl <- readRDS("/Volumes/broad_hptmp/jpeters/ei/241_barcodetable.rds")
@@ -92,13 +92,6 @@ fo <- FindNeighbors(fo, dims = 1:20)
 fo <- FindClusters(fo, resolution = 0.5, algorithm = 3)
 fo <- RunUMAP(fo, dims = 1:20)
 fo[[]]
-saveRDS(fo, "data/filtered_object_v1.rds")
-
-
-
-fo <- readRDS("input_data/filtered_object_v1.rds")
-
-
 
 # Add clean sample names metadata
 fo$clean_sample_name <- fo$sample_name
@@ -106,29 +99,13 @@ fo$clean_sample_name[fo$clean_sample_name == "No mAb"] <- "no Ab"
 fo$clean_sample_name[fo$clean_sample_name == "IgG1 24c5"] <- "24c5 IgG1"
 fo$clean_sample_name[fo$clean_sample_name == "SEH 24c5"] <- "24c5 SEHFST LS"
 fo$clean_sample_name[fo$clean_sample_name == "SAE 24c5"] <- "24c5 SAEAKA"
-
-# Set identity classes to clean samples names
 Idents(object = fo) <- "clean_sample_name"
 
 
-fo$cell_type <- rep("Unknown", length(fo$seurat_clusters))
+keep_24c5 <- c("24c5 IgG1", "24c5 SEHFST LS", "no Ab", "Uninfected")
+fo_24c5 <- subset(x = fo, idents = keep_24c5)
 
-clusters_t_nk <- c(0, 1, 2, 3, 4, 6, 8, 9)
-fo$cell_type[fo$seurat_clusters %in% clusters_t_nk] <- "T/NK cells"
 
-clusters_mono_mac_dc <- c(10, 11)
-fo$cell_type[fo$seurat_clusters %in% clusters_mono_mac_dc] <- "Mono/Mac/DC"
-
-clusters_b <- c("5")
-fo$cell_type[fo$seurat_clusters %in% clusters_b] <- "B cells"
-
-clusters_neut <- c("7")
-fo$cell_type[fo$seurat_clusters %in% clusters_neut] <- "Neutrophils"
-
-keep_24c5 <- c("no Ab", "Uninfected", "24c5 IgG1", '24c5 SEHFST LS', "24c5 SAEAKA")
-obj_24c5 <- subset(x = fo, idents = keep_24c5)
-Idents(object = obj_24c5) <- "cell_type"
-
-saveRDS(obj_24c5, "data/obj_24c5.rds")
+saveRDS(fo_24c5, "data/filtered_object_v1.rds")
 
 
