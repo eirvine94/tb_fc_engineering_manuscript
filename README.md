@@ -1,4 +1,4 @@
-# Fc-engineered antibodies leverage neutrophils to drive control of Mycobacterium tuberculosis
+# Fc-engineered antibodies promote neutrophil-dependent control of Mycobacterium tuberculosis
 
 BioRxiv: 
 
