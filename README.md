@@ -6,7 +6,7 @@
 
 
 
-This repository contains the code for our manuscript titled "Fc-engineered antibodies promote neutrophil-dependent control of Mycobacterium tuberculosis".
+This repository contains the code for our manuscript entitled: "Fc-engineered antibodies promote neutrophil-dependent control of Mycobacterium tuberculosis".
 
 
 
