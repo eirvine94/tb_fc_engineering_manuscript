@@ -5,9 +5,8 @@
 
 
 
-Repository Overview
 
-This repository contains all the code, data, and supplementary materials for our manuscript titled "Fc-engineered Antibodies Promote Neutrophil-dependent Control of Mycobacterium tuberculosis".
+This repository contains the code for our manuscript titled "Fc-engineered antibodies promote neutrophil-dependent control of Mycobacterium tuberculosis".
 
 
 
@@ -24,6 +23,5 @@ https://www.biorxiv.org/content/10.1101/2022.05.01.490220v1#:~:text=Surprisingly
 
 
 
-Acknowledgments
 
 We thank all contributors and collaborators who made this research possible.
